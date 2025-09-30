@@ -2,10 +2,13 @@ package lib2
 
 import "fmt"
 
-func Lib2Test() {
-	fmt.Println("当前lib2提供的接口")
+const b int = 20
+
+func Lib2Test(a2 int) {
+	c := a2 + b
+	fmt.Printf("The sum of a2 and b is %v\n", c)
 }
 
 func init() {
-	fmt.Println("lib2 init")
+	fmt.Println("lib2.go init")
 }
