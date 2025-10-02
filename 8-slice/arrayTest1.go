@@ -1,40 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func printArray(nums [10]int) { // 值传递：这一点和C/C++不一样了！
-	nums[0] = 100
-	for _, num := range nums {
-		fmt.Println(num)
+// 值拷贝形式的传参
+func printArray(a [4]int) { // 注意类型匹配问题
+	for i := 0; i < len(a); i++ {
+		fmt.Println("index:", i, ", val = ", a[i])
 	}
+	fmt.Println("-------------------------------")
 }
 
 func main() {
-	// 固定长度的数组
-	var nums [10]int
-
-	nums2 := [10]int{1, 2, 3, 4}
-
-	var nums3 = [4]int{1, 2, 3, 4}
-
-	for i := 0; i < len(nums); i++ {
-		fmt.Println(nums[i])
+	// 声明一个长度为10的数组，并进行遍历
+	var nums1 [10]int
+	for i := 0; i < len(nums1); i++ {
+		fmt.Println("index: ", i, "num: ", nums1[i])
 	}
-
-	for idx, num := range nums2 {
-		fmt.Println(idx, num)
+	fmt.Println("-------------------------------")
+	// 声明一个长度为10，初始化部分数据的数组，并进行遍历
+	var nums2 = [10]int{1, 2, 3, 4} // 初始化了，需要用=
+	for idx, val := range nums2 {
+		fmt.Println("index: ", idx, "num: ", val)
 	}
-
-	// 查看数组的数据类型
-	fmt.Printf("nums数组的数据类型为：%T\n", nums[0])
-	fmt.Printf("nums2数组的数据类型为：%T\n", nums2[0])
-	fmt.Printf("nums3数组的数据类型为：%T\n", nums3[0])
-
-	// 尝试用函数printArray打印nums3
-	printArray(nums)
-	// printArray(nums3) // 报错： cannot use nums3 (variable of type [4]int) as [10]int value in argument to printArray
-	fmt.Printf("out of printArry")
-	for idx, num := range nums {
-		fmt.Println(idx, num)
+	fmt.Println("-------------------------------")
+	nums3 := [4]int{1, 2, 3, 4}
+	for idx, val := range nums3 {
+		fmt.Println("index: ", idx, "num: ", val)
 	}
+	fmt.Println("-------------------------------")
+	// 查看三个数组的类型
+	fmt.Printf("The type of nums1 is: %T\n", nums1)
+	fmt.Printf("The type of nums2 is: %T\n", nums2)
+	fmt.Printf("The type of nums3 is: %T\n", nums3)
+	fmt.Println("-------------------------------")
+	printArray(nums3)
+
 }

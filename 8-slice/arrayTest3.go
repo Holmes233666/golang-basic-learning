@@ -1,34 +1,30 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
+// 切片声明的4种方式
 func main() {
-	// slice的声明方式：
-	// 方式1：声明 + 定义
-	slice1 := []int{1, 2, 3, 4, 5}
-	fmt.Println("当前slice1的长度为", len(slice1))
+	// 1. 声明但不初始化，访问/赋值元素会越界
+	var nums1 []int
+	fmt.Printf("len = %d, nums1: %v\n", len(nums1), nums1)
 
-	// 方式2：只声明
-	slice2 := []int{}
-	slice2 = make([]int, 3)    // 开辟空间
-	slice2 = append(slice2, 1) // 追加一个元素
-	fmt.Println("当前slice2的长度为", len(slice2))
+	// 2. 声明且初始化
+	var nums2 = []int{1, 2, 3, 4}
+	fmt.Printf("len = %d, nums2: %v\n", len(nums2), nums2)
 
-	// 方式3：声明 + 初始化 [方式1 + 方式2 的合并方式]
-	var slice3 = make([]int, 4)
-	fmt.Println(slice3)
+	// 3. 使用make进行初始化
+	var nums3 = make([]int, 4)
+	fmt.Printf("len = %d, nums3: %v\n", len(nums3), nums3)
 
-	// 方式4：直接使用推断
-	slice4 := make([]int, 5)
-	fmt.Println(slice4)
+	// 4. 使用 := 进行推导
+	nums4 := make([]int, 5)
+	fmt.Printf("len = %d, nums4: %v\n", len(nums4), nums4)
 
-	var slice5 []int
-	if slice5 == nil {
-		fmt.Println("slice5 is nil")
+	// 判断一个slice是否为空
+	if nums1 == nil {
+		fmt.Println("nums1 是一个空切片")
 	} else {
-		fmt.Println("slice5 is not nil")
+		fmt.Println("nums1 不是一个空切片")
 	}
 
 }

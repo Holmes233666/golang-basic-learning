@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func myswap(a *int, b *int) {
-	temp := *b
-	*b = *a
-	*a = temp
+	temp := *a
+	*a = *b
+	*b = temp
 }
 
 func main() {

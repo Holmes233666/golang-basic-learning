@@ -39,6 +39,7 @@ func tool4(a string, b int) (r1, r2 int) {
 	return
 }
 
+
 func main() {
 	c := tool("abc", 555)
 	fmt.Println(c)
